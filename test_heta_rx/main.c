@@ -1,0 +1,35 @@
+#include "main.h"
+#include "app_fixed_data/fixed_data.h"
+
+
+// ================================================================= //
+//						TEST WITH FILE							     //
+// ================================================================= //
+int main (int argc, char **argv[])
+{
+	node_t NODE;
+
+	printf("Info: ======================================================================\n");
+	printf("Info: ======================       HETA VERSION       ======================\n");
+	printf("Info: ======================================================================\n");
+
+	app_fixed_data_init(argc, argv, &NODE);
+
+	// Run application
+#if TRX_ENABLE == 0
+	printf("Info: Send process ... \n");
+	NODE.src_addr  = NODE_00_ADDR;
+	NODE.dest_addr = NODE_01_ADDR;
+	app_fixed_data_tx_data(NODE);
+
+#elif TRX_ENABLE == 1
+	printf("Info: Receive process ... \n");
+	NODE.src_addr  = NODE_01_ADDR;
+	NODE.dest_addr = NODE_00_ADDR;
+	app_fixed_data_rx_data(NODE);
+#endif
+
+	return 0;
+}
+
+

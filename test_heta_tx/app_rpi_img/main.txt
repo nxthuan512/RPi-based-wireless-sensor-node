@@ -1,0 +1,55 @@
+#include "main.h"
+#include "app_rpi_img/rpi_img.h"
+
+// ================================================================= //
+//						TEST CAMERA - FORK, THREAD				     //
+// ================================================================= //
+int main (int argc, char **argv[])
+{
+	node_t NODE;
+	pid_t pid;
+
+	app_rpi_img_init();
+
+	// Run application
+#if TRX_ENABLE == 0
+	printf("Info: TX process ... \n");
+	NODE.src_addr  = NODE_00_ADDR;
+	NODE.dest_addr = NODE_01_ADDR;
+
+	pid = fork();
+	// Child process - Camera
+	if (pid == 0)
+	{
+		printf("Debug: --- Start capturing image ...\n");
+		system("raspistill -w 320 -h 240 -q 10 -t 30000 -tl 2000 -o /home/pi/my_code/tmp/data/img%d.jpg");
+		printf("Debug: --- End capturing image ...\n");
+		exit(EXIT_SUCCESS);
+	}
+
+	// Parant process - Send
+	else if (pid > 0)
+	{
+		printf("Debug: --- Start sending image ...\n");
+		app_rpi_img_send_data(NODE);
+		printf("Debug: --- End sending image ...\n");
+		exit(EXIT_SUCCESS);
+	}
+
+	// Fork failed
+	else
+	{
+		printf("Debug: --- fork() failed \n");
+		exit(EXIT_FAILURE);
+	}
+
+#elif TRX_ENABLE == 1
+	printf("Info: RX process ... \n");
+	NODE.src_addr  = NODE_01_ADDR;
+	NODE.dest_addr = NODE_00_ADDR;
+	app_rpi_img_recv_store_data(NODE);
+#endif
+
+	return 0;
+}
+

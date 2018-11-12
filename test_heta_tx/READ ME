@@ -1,0 +1,9 @@
+app_rpi_img:
+	TX: capture image from camera and send to RX, use fork()
+	RX: receive image from TX and store to file, use thread
+	Change main.txt to main.c, and then use
+	
+app_fixed_data:
+	TX: store a file to array and then send to RX
+	RX: receive and temporary store data in array, afterwards write to file
+	Test maximum bandwidth
