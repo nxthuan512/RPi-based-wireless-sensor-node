@@ -7,3 +7,6 @@ Each multimedia wireless sensor node is composed of a Raspberry Pi Zero used to 
   <p align="center"><img src="https://github.com/nxthuan512/RPi-based-wireless-sensor-node/blob/master/img/rpi_sys_2.PNG" alt="hinh1" width="40%"></p>    
   <figcaption><p align="center">Figure 1 - A multimedia wireless sensor node.</p></figcaption>
 </figure>
+
+The publications can be found at 
+https://drive.google.com/file/d/0B2YpuPRpCiHmcjZ0SGkwYmZmTTA/view?resourcekey=0-y1aypiibNC8Yen_cL40N1g
