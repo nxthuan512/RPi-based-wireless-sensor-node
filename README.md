@@ -8,5 +8,5 @@ Each multimedia wireless sensor node is composed of a Raspberry Pi Zero used to 
   <figcaption><p align="center">Figure 1 - A multimedia wireless sensor node.</p></figcaption>
 </figure>
 
-The publications can be found at 
-https://drive.google.com/file/d/0B2YpuPRpCiHmcjZ0SGkwYmZmTTA/view?resourcekey=0-y1aypiibNC8Yen_cL40N1g
+Publication
+1. Xuan-Thuan Nguyen, Hong-Thu Nguyen, and Cong-Kha Pham, "SAR: A Self-Adaptive and Reliable Protocol for Wireless Multimedia Sensor Networks," The 7th International Conference on Ubiquitous and Future Networks (ICUFN), pp. 760 - 765, Sapporo, Japan, July 7th - 10th, 2015.
